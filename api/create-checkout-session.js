@@ -4,7 +4,7 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 // For Vercel
-export default async function handler(req, res) {
+module.exports = async (req, res) => {
   // Enable CORS
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -86,4 +86,4 @@ export default async function handler(req, res) {
     console.error('Stripe API error:', error);
     res.status(500).json({ error: error.message });
   }
-}
+};
